@@ -46,7 +46,7 @@ header {
     text-decoration: none;
 }
 
-/* Search Box (Sirf Home Page ke liye) */
+/* Search Box */
 .search-box { position: relative; margin-top: 10px; }
 .search-box input { 
     width: 100%; 
@@ -63,7 +63,7 @@ header {
     color: #d4af37; 
 }
 
-/* --- SIDEBAR --- */
+/* --- SIDEBAR (FIXED) --- */
 .sidebar { 
     height: 100%; 
     width: 0; 
@@ -73,7 +73,10 @@ header {
     left: 0; 
     background-color: white; 
     overflow-x: hidden; 
+    overflow-y: auto; /* Zaroori: Isse sare items scroll karke dekhe ja sakenge */
     transition: 0.4s; 
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-header { 
@@ -82,6 +85,11 @@ header {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
+    flex-shrink: 0;
+}
+
+.sidebar-links {
+    flex-grow: 1;
 }
 
 .sidebar-links a { 
@@ -95,9 +103,23 @@ header {
     border-bottom: 1px solid #fce4ec;
 }
 
-.contact-section { padding: 20px 25px; background: #fdf2ff; }
+.sidebar-links a i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    color: #8e24aa;
+}
+
+/* Contact Section at bottom of Sidebar */
+.contact-section { 
+    padding: 20px 25px; 
+    background: #fdf2ff; 
+    margin-top: auto; /* Ise hamesha niche rakhega */
+}
+
 .contact-title { font-size: 11px; font-weight: 700; color: #d4af37; margin-bottom: 10px; }
-.contact-item { text-decoration: none; display: block; padding: 10px 0; color: #4a148c; font-size: 13px; }
+.contact-item { text-decoration: none; display: flex; align-items: center; padding: 10px 0; color: #4a148c; font-size: 13px; }
+.contact-item i { margin-right: 10px; color: #8e24aa; }
 
 .overlay { 
     display: none; 
@@ -134,14 +156,12 @@ header {
     padding: 0 15px 40px; 
 }
 
-/* Link Wrapper for Cards */
 .card-link { 
     text-decoration: none; 
     color: inherit; 
     display: block; 
 }
 
-/* Main Card Styling */
 .card { 
     background: white;
     padding: 12px; 
@@ -155,7 +175,6 @@ header {
 
 .card:active { transform: scale(0.98); }
 
-/* Image Container */
 .grid-img { 
     width: 100%; 
     height: 130px; 
@@ -165,7 +184,6 @@ header {
     background-color: #f9f9f9;
 }
 
-/* Product Name Text */
 .card h4 { 
     font-size: 12px; 
     color: #4a148c; 
@@ -174,7 +192,6 @@ header {
     letter-spacing: 0.5px;
 }
 
-/* Decorative Background Colors */
 .pink-bg { background-color: #fff1f5; }
 .purple-bg { background-color: #f8f1ff; }
 
