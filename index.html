@@ -18,9 +18,11 @@
             <div class="logo">
                 <span class="brand">Bhagwan <span class="gold-text">Decoration</span></span>
             </div>
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i> Hyderabad
-            </div>
+            <a href="https://maps.app.goo.gl/bXgXdBEVMtKdBB9u6" target="_blank" class="location-link">
+                <div class="location-box">
+                    <i class="fas fa-map-marker-alt"></i> Hyderabad
+                </div>
+            </a>
         </div>
         <div class="search-box">
             <input type="text" placeholder="What are u looking for ?">
@@ -30,64 +32,45 @@
 
     <div id="mySidebar" class="sidebar">
         <div class="sidebar-header">
-            <h3>Bhagwan Decor</h3>
+            <h3>Menu</h3>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         </div>
         <div class="sidebar-links">
-            <a href="#"><span class="num">1</span> <i class="fas fa-home"></i> HOME</a>
-            <a href="#"><span class="num">2</span> <i class="fas fa-layer-group"></i> Hanging</a>
-            <a href="#"><span class="num">3</span> <i class="fas fa-flag"></i> FLAG</a>
-            <a href="#"><span class="num">4</span> <i class="fas fa-border-all"></i> RANGOLI</a>
-            <a href="#"><span class="num">5</span> <i class="fas fa-door-open"></i> TORAN</a>
-            <a href="#"><span class="num">6</span> <i class="fas fa-spa"></i> MALA</a>
+            <a href="#" onclick="closeNav()"><span class="num">1</span> <i class="fas fa-home"></i> HOME</a>
+            <a href="#hanging" onclick="closeNav()"><span class="num">2</span> <i class="fas fa-certificate"></i> Hanging</a>
+            <a href="#flag" onclick="closeNav()"><span class="num">3</span> <i class="fas fa-flag"></i> FLAG</a>
+            <a href="#rangoli" onclick="closeNav()"><span class="num">4</span> <i class="fas fa-palette"></i> RANGOLI</a>
+            <a href="#toran" onclick="closeNav()"><span class="num">5</span> <i class="fas fa-archway"></i> TORAN</a>
+            <a href="#mala" onclick="closeNav()"><span class="num">6</span> <i class="fas fa-spa"></i> MALA</a>
             <hr class="gold-line">
-            <a href="#" class="contact-btn"><i class="fas fa-phone-alt"></i> CONTACT</a>
+            <a href="#contact" class="contact-btn" onclick="closeNav()"><i class="fas fa-phone-alt"></i> CONTACT</a>
         </div>
     </div>
 
     <div id="overlay" class="overlay" onclick="closeNav()"></div>
 
     <main>
-        <section class="circle-nav">
-            <div class="circle-item">
-                <div class="icon-circle pink-bg"><i class="fas fa-star gold-text"></i></div>
-                <p>Hanging</p>
-            </div>
-            <div class="circle-item">
-                <div class="icon-circle purple-bg"><i class="fas fa-om gold-text"></i></div>
-                <p>Toran</p>
-            </div>
-            <div class="circle-item">
-                <div class="icon-circle pink-bg"><i class="fas fa-leaf gold-text"></i></div>
-                <p>Mala</p>
-            </div>
-            <div class="circle-item">
-                <div class="icon-circle purple-bg"><i class="fas fa-sun gold-text"></i></div>
-                <p>Rangoli</p>
-            </div>
-        </section>
-
         <div class="promo-banner">
             <p>Premium decor for your celestial moments</p>
         </div>
 
-        <h2 class="section-title">Our Collections</h2>
+        <h2 class="section-title">Explore Collections</h2>
         <section class="card-grid">
             <div class="card pink-bg">
                 <div class="img-placeholder"></div>
-                <h4>Wedding Decor</h4>
+                <h4>Wedding Special</h4>
             </div>
             <div class="card purple-bg">
                 <div class="img-placeholder"></div>
-                <h4>Festival Special</h4>
+                <h4>Festival Decor</h4>
             </div>
             <div class="card purple-bg">
                 <div class="img-placeholder"></div>
-                <h4>Birthday Decor</h4>
+                <h4>Pooja Room</h4>
             </div>
             <div class="card pink-bg">
                 <div class="img-placeholder"></div>
-                <h4>Pooja Setup</h4>
+                <h4>Home Events</h4>
             </div>
         </section>
     </main>
