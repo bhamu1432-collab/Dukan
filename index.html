@@ -8,16 +8,31 @@
 </head>
 <body>
 
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="menu">
+  <h2>🎉 Menu</h2>
+  <a href="#">🏠 Home</a>
+  <a href="#">🎂 Birthdays</a>
+  <a href="#">🎊 Occasions</a>
+  <a href="#">🎈 Supplies</a>
+  <a href="#">📞 Contact</a>
+</div>
+
 <!-- Header -->
 <header class="header">
-  <div class="menu-icon" onclick="toggleMenu()"></div>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-  <div class="header-center">
-    <h1 class="logo"> BHAGWAN DECORATION </h1>
-    <p class="location">Hyderabad</p>
+  <h1 class="logo">🕯️ BHAGWAN DECORATION 🎉</h1>
+
+  <div class="right-section">
+    <a href="https://maps.app.goo.gl/kowZwrh6wegwQPHMA" target="_blank" class="location">
+      📍 Hyderabad
+    </a>
+    <span class="icons">🔍 🛒</span>
   </div>
-
-  <div class="icons"> </div>
 
   <!-- Balloons -->
   <div class="balloons">
@@ -33,15 +48,6 @@
     <span></span>
   </div>
 </header>
-
-<!-- Side Menu -->
-<div class="side-menu" id="menu">
-  <a href="#">HOME</a>
-  <a href="#">BIRTHDAYS</a>
-  <a href="#">OCCASIONS</a>
-  <a href="#">SUPPLIES</a>
-  <a href="#">CONTACT</a>
-</div>
 
 <!-- Banner -->
 <section class="banner">
@@ -67,30 +73,43 @@
 
 <!-- Products -->
 <section class="products">
-  <div class="card">
+
+  <div class="card" onclick="openProduct('Decoration Box','₹500')">
     <img src="https://via.placeholder.com/150">
     <h3>Decoration Box</h3>
-    <p>500</p>
+    <p>₹500</p>
   </div>
 
-  <div class="card">
+  <div class="card" onclick="openProduct('Birthday Kit','₹399')">
     <img src="https://via.placeholder.com/150">
     <h3>Birthday Kit</h3>
-    <p>399</p>
+    <p>₹399</p>
   </div>
 
-  <div class="card">
+  <div class="card" onclick="openProduct('Balloon Set','₹199')">
     <img src="https://via.placeholder.com/150">
     <h3>Balloon Set</h3>
-    <p>199</p>
+    <p>₹199</p>
   </div>
 
-  <div class="card">
+  <div class="card" onclick="openProduct('Banner Pack','₹99')">
     <img src="https://via.placeholder.com/150">
     <h3>Banner Pack</h3>
-    <p>99</p>
+    <p>₹99</p>
   </div>
+
 </section>
+
+<!-- Product Popup -->
+<div class="product-popup" id="popup">
+  <div class="popup-content">
+    <h2 id="pname"></h2>
+    <p id="pprice"></p>
+
+    <button onclick="orderNow()">Order Now</button>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
