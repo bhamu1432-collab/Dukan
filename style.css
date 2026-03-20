@@ -1,69 +1,20 @@
-/* --- BHAGWAN DECORATION MASTER CSS --- */
+/* --- MASTER CSS --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background-color: #fcfaff; color: #4a148c; overflow-x: hidden; }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Poppins', sans-serif; 
-}
-
-body { 
-    background-color: #fcfaff; 
-    color: #4a148c; 
-    line-height: 1.6;
-}
-
-/* --- HEADER & NAVIGATION --- */
-header { 
-    background: white; 
-    padding: 15px; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
-}
-
-.top-bar { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 10px;
-}
-
-.brand { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 20px; 
-    font-weight: 700; 
-    color: #4a148c; 
-}
-
+/* HEADER */
+header { background: white; padding: 15px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #4a148c; }
 .gold-text { color: #d4af37; }
+.menu-icon { font-size: 24px; color: #8e24aa; cursor: pointer; }
+.location-box { font-size: 13px; color: #8e24aa; }
 
-.menu-icon, .back-btn { 
-    font-size: 22px; 
-    color: #8e24aa; 
-    cursor: pointer; 
-    text-decoration: none;
-}
+.search-box { position: relative; }
+.search-box input { width: 100%; padding: 12px 15px; border: 1px solid #d4af37; border-radius: 25px; background: #fdf2ff; outline: none; }
+.search-box i { position: absolute; right: 15px; top: 14px; color: #d4af37; }
 
-/* Search Box */
-.search-box { position: relative; margin-top: 10px; }
-.search-box input { 
-    width: 100%; 
-    padding: 12px 15px; 
-    border: 1px solid #d4af37; 
-    border-radius: 25px; 
-    background: #fdf2ff; 
-    outline: none; 
-}
-.search-box i { 
-    position: absolute; 
-    right: 15px; 
-    top: 14px; 
-    color: #d4af37; 
-}
-
-/* --- SIDEBAR (FIXED) --- */
+/* SIDEBAR (FIXED FOR SCROLLING) */
 .sidebar { 
     height: 100%; 
     width: 0; 
@@ -73,24 +24,12 @@ header {
     left: 0; 
     background-color: white; 
     overflow-x: hidden; 
-    overflow-y: auto; /* Zaroori: Isse sare items scroll karke dekhe ja sakenge */
+    overflow-y: auto; /* Isse Mala/Rangoli dikhenge */
     transition: 0.4s; 
-    display: flex;
-    flex-direction: column;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.1);
 }
 
-.sidebar-header { 
-    background: #f8bbd0; 
-    padding: 25px 20px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    flex-shrink: 0;
-}
-
-.sidebar-links {
-    flex-grow: 1;
-}
+.sidebar-header { background: #f8bbd0; padding: 25px 20px; display: flex; justify-content: space-between; align-items: center; }
 
 .sidebar-links a { 
     padding: 16px 25px; 
@@ -100,103 +39,26 @@ header {
     color: #4a148c; 
     font-size: 14px; 
     font-weight: 600; 
-    border-bottom: 1px solid #fce4ec;
+    border-bottom: 1px solid #fce4ec; 
 }
+.sidebar-links a i { margin-right: 15px; color: #8e24aa; width: 20px; text-align: center; }
 
-.sidebar-links a i {
-    margin-right: 15px;
-    width: 20px;
-    text-align: center;
-    color: #8e24aa;
-}
+.gold-line { border: 0; height: 1px; background: #d4af37; margin: 10px 0; opacity: 0.3; }
 
-/* Contact Section at bottom of Sidebar */
-.contact-section { 
-    padding: 20px 25px; 
-    background: #fdf2ff; 
-    margin-top: auto; /* Ise hamesha niche rakhega */
-}
-
+/* CONTACT SECTION */
+.contact-section { padding: 20px 25px; background: #fdf2ff; }
 .contact-title { font-size: 11px; font-weight: 700; color: #d4af37; margin-bottom: 10px; }
-.contact-item { text-decoration: none; display: flex; align-items: center; padding: 10px 0; color: #4a148c; font-size: 13px; }
+.contact-item { text-decoration: none; display: flex; align-items: center; padding: 8px 0; color: #4a148c; font-size: 13px; }
 .contact-item i { margin-right: 10px; color: #8e24aa; }
 
-.overlay { 
-    display: none; 
-    position: fixed; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(74, 20, 140, 0.3); 
-    z-index: 999; 
-}
+.overlay { display: none; position: fixed; width: 100%; height: 100%; background: rgba(74, 20, 140, 0.3); z-index: 999; }
 
-/* --- PRODUCT GRID SYSTEM --- */
-.promo-banner { 
-    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%); 
-    margin: 15px; 
-    padding: 25px; 
-    border-radius: 15px; 
-    text-align: center; 
-    color: #4a148c; 
-    font-style: italic; 
-    border: 1px solid #d4af37; 
-}
-
-.section-title { 
-    text-align: center; 
-    font-family: 'Playfair Display', serif; 
-    margin: 25px 0 15px; 
-    color: #4a148c; 
-}
-
-.card-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 15px; 
-    padding: 0 15px 40px; 
-}
-
-.card-link { 
-    text-decoration: none; 
-    color: inherit; 
-    display: block; 
-}
-
-.card { 
-    background: white;
-    padding: 12px; 
-    border-radius: 15px; 
-    text-align: center; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
-    height: 100%;
-    transition: transform 0.2s ease;
-    border: 1px solid rgba(212, 175, 55, 0.1);
-}
-
-.card:active { transform: scale(0.98); }
-
-.grid-img { 
-    width: 100%; 
-    height: 130px; 
-    object-fit: cover; 
-    border-radius: 10px; 
-    margin-bottom: 10px; 
-    background-color: #f9f9f9;
-}
-
-.card h4 { 
-    font-size: 12px; 
-    color: #4a148c; 
-    font-weight: 600; 
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
+/* GRID SYSTEM */
+.promo-banner { background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%); margin: 15px; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #d4af37; }
+.section-title { text-align: center; font-family: 'Playfair Display', serif; margin: 20px 0; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 15px 30px; }
+.card-link { text-decoration: none; color: inherit; }
+.card { background: white; padding: 12px; border-radius: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid rgba(212,175,55,0.1); }
+.grid-img { width: 100%; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 8px; }
 .pink-bg { background-color: #fff1f5; }
 .purple-bg { background-color: #f8f1ff; }
-
-/* Responsive Adjustments */
-@media (max-width: 350px) {
-    .card h4 { font-size: 10px; }
-    .grid-img { height: 100px; }
-}
