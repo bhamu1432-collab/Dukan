@@ -24,10 +24,10 @@ document.querySelectorAll('.card').forEach(card => {
     });
 });
 
-// Photo Popup Logic (Only for Collection Pages)
-const isMainPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+// Photo Popup Logic
+const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
 
-if (!isMainPage) {
+if (!isHomePage) {
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('grid-img')) {
             let modal = document.getElementById('photoModal');
