@@ -8,33 +8,22 @@ function closeNav() {
     document.getElementById("overlay").style.display = "none";
 }
 
-// Ripple Effect
+// Ripple Effect (Sabhi Cards par kaam karega)
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', function (e) {
         let x = e.clientX - this.getBoundingClientRect().left;
         let y = e.clientY - this.getBoundingClientRect().top;
+        
         let ripples = document.createElement('span');
         ripples.style.left = x + 'px';
         ripples.style.top = y + 'px';
         ripples.classList.add('ripple');
         this.appendChild(ripples);
+        
         setTimeout(() => { ripples.remove(); }, 600);
     });
 });
 
-// Full Screen View Logic
-document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('grid-img')) {
-        let modal = document.getElementById('photoModal');
-        if (!modal) {
-            modal = document.createElement('div');
-            modal.id = 'photoModal';
-            modal.className = 'modal';
-            modal.innerHTML = `<img class="modal-content" id="fullImg">`;
-            document.body.appendChild(modal);
-        }
-        document.getElementById('fullImg').src = e.target.src;
-        modal.style.display = "flex";
-        modal.onclick = function() { modal.style.display = "none"; }
-    }
-});
+/* NOTE: Maine Full Screen View Logic (Popup) yahan se hata diya hai.
+   Ab kisi bhi grid image par click karne se popup nahi aayega.
+*/
