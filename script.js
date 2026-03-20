@@ -24,8 +24,10 @@ document.querySelectorAll('.card').forEach(card => {
     });
 });
 
-// Photo Popup (Works on all pages except index)
-if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/') {
+// Photo Popup Logic (Only for Collection Pages)
+const isMainPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+
+if (!isMainPage) {
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('grid-img')) {
             let modal = document.getElementById('photoModal');
