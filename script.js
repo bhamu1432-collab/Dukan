@@ -1,8 +1,7 @@
-// Sidebar Controls
 function openNav() {
     document.getElementById("mySidebar").style.width = "280px";
     document.getElementById("overlay").style.display = "block";
-    document.body.style.overflow = "hidden"; // Prevent background scroll
+    document.body.style.overflow = "hidden";
 }
 
 function closeNav() {
@@ -11,7 +10,7 @@ function closeNav() {
     document.body.style.overflow = "auto";
 }
 
-// Ripple Effect for all cards
+// Ripple Effect
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', function (e) {
         let x = e.clientX - this.getBoundingClientRect().left;
@@ -21,15 +20,12 @@ document.querySelectorAll('.card').forEach(card => {
         ripples.style.top = y + 'px';
         ripples.classList.add('ripple');
         this.appendChild(ripples);
-        setTimeout(() => { ripples.remove(); }, 600);
+        setTimeout(() => { ripples.remove(); }, 500);
     });
 });
 
-// Smart Popup Logic
-// Yeh check karega ki page index.html toh nahi hai
-const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
-
-if (!isIndexPage) {
+// Photo Popup (Works on all pages except index)
+if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/') {
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('grid-img')) {
             let modal = document.getElementById('photoModal');
