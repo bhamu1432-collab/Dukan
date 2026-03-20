@@ -1,27 +1,38 @@
-// Sidebar Open/Close
+// Sidebar Controls
 function openNav() {
     document.getElementById("mySidebar").style.width = "280px";
     document.getElementById("overlay").style.display = "block";
 }
-
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("overlay").style.display = "none";
 }
 
-// Full Screen Image Logic (Lightbox)
+// Ripple Effect
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function (e) {
+        let x = e.clientX - this.getBoundingClientRect().left;
+        let y = e.clientY - this.getBoundingClientRect().top;
+        let ripples = document.createElement('span');
+        ripples.style.left = x + 'px';
+        ripples.style.top = y + 'px';
+        ripples.classList.add('ripple');
+        this.appendChild(ripples);
+        setTimeout(() => { ripples.remove(); }, 600);
+    });
+});
+
+// Full Screen View Logic
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('grid-img')) {
-        // Create Modal if it doesn't exist
         let modal = document.getElementById('photoModal');
         if (!modal) {
             modal = document.createElement('div');
             modal.id = 'photoModal';
             modal.className = 'modal';
-            modal.innerHTML = `<img class="modal-content" id="fullImg" onclick="this.parentElement.style.display='none'">`;
+            modal.innerHTML = `<img class="modal-content" id="fullImg">`;
             document.body.appendChild(modal);
         }
-        // Show Modal
         document.getElementById('fullImg').src = e.target.src;
         modal.style.display = "flex";
         modal.onclick = function() { modal.style.display = "none"; }
