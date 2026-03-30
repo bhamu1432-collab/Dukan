@@ -36,6 +36,17 @@ document.querySelectorAll('.card').forEach(card => {
     });
 });
 
+// ✨ Golden Glow on Press
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('touchstart', () => triggerGlow(card));
+    card.addEventListener('mousedown', () => triggerGlow(card));
+});
+
+function triggerGlow(card) {
+    card.classList.add('glow-active');
+    setTimeout(() => card.classList.remove('glow-active'), 300);
+}
+
 // ✨ Glitter Trail (Optimized)
 let lastTime = 0;
 
