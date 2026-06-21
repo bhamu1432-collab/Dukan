@@ -1,6 +1,9 @@
-// Sidebar
+/* =========================
+   SIDEBAR
+========================= */
+
 function openNav() {
-    document.getElementById("mySidebar").style.width = "280px";
+    document.getElementById("mySidebar").style.width = "290px";
     document.getElementById("overlay").style.display = "block";
     document.body.style.overflow = "hidden";
 }
@@ -11,89 +14,266 @@ function closeNav() {
     document.body.style.overflow = "auto";
 }
 
-// ✨ Sparkle Effect on Card Click
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', function (e) {
-        let rect = this.getBoundingClientRect();
+/* =========================
+   LIVE SEARCH
+========================= */
 
-        for (let i = 0; i < 8; i++) {
-            let sparkle = document.createElement('span');
-            sparkle.classList.add('sparkle');
+const searchInput = document.getElementById("searchInput");
 
-            let x = e.clientX - rect.left;
-            let y = e.clientY - rect.top;
+if (searchInput) {
 
-            sparkle.style.left = x + 'px';
-            sparkle.style.top = y + 'px';
+    searchInput.addEventListener("keyup", () => {
 
-            sparkle.style.setProperty('--x', Math.random());
-            sparkle.style.setProperty('--y', Math.random());
+        const filter = searchInput.value.toLowerCase();
 
-            this.appendChild(sparkle);
+        const cards = document.querySelectorAll(".card");
 
-            setTimeout(() => sparkle.remove(), 800);
-        }
+        cards.forEach(card => {
+
+            const text = card.innerText.toLowerCase();
+
+            if (text.includes(filter)) {
+                card.parentElement.style.display = "block";
+            } else {
+                card.parentElement.style.display = "none";
+            }
+
+        });
+
     });
-});
 
-// ✨ Golden Glow on Press
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('touchstart', () => triggerGlow(card));
-    card.addEventListener('mousedown', () => triggerGlow(card));
+}
+
+/* =========================
+   CARD CLICK GLOW
+========================= */
+
+document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("touchstart", () => {
+        triggerGlow(card);
+    });
+
+    card.addEventListener("mousedown", () => {
+        triggerGlow(card);
+    });
+
 });
 
 function triggerGlow(card) {
-    card.classList.add('glow-active');
-    setTimeout(() => card.classList.remove('glow-active'), 300);
+
+    card.classList.add("glow-active");
+
+    setTimeout(() => {
+        card.classList.remove("glow-active");
+    }, 300);
+
 }
 
-// ✨ Glitter Trail (Optimized)
+/* =========================
+   SPARKLE BURST
+========================= */
+
+document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("click", function (e) {
+
+        const rect = this.getBoundingClientRect();
+
+        for (let i = 0; i < 10; i++) {
+
+            const sparkle = document.createElement("span");
+
+            sparkle.classList.add("sparkle");
+
+            sparkle.style.left =
+                (e.clientX - rect.left) + "px";
+
+            sparkle.style.top =
+                (e.clientY - rect.top) + "px";
+
+            sparkle.style.setProperty(
+                "--x",
+                Math.random()
+            );
+
+            sparkle.style.setProperty(
+                "--y",
+                Math.random()
+            );
+
+            this.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 800);
+
+        }
+
+    });
+
+});
+
+/* =========================
+   GLITTER TRAIL
+========================= */
+
 let lastTime = 0;
 
 function createSparkle(e) {
-    let now = Date.now();
+
+    const now = Date.now();
+
     if (now - lastTime < 40) return;
+
     lastTime = now;
 
-    let x = e.touches ? e.touches[0].clientX : e.clientX;
-    let y = e.touches ? e.touches[0].clientY : e.clientY;
+    const x = e.touches
+        ? e.touches[0].clientX
+        : e.clientX;
 
-    let sparkle = document.createElement('span');
-    sparkle.classList.add('glitter');
+    const y = e.touches
+        ? e.touches[0].clientY
+        : e.clientY;
 
-    sparkle.style.left = x + 'px';
-    sparkle.style.top = y + 'px';
+    const sparkle = document.createElement("span");
+
+    sparkle.classList.add("glitter");
+
+    sparkle.style.left = x + "px";
+    sparkle.style.top = y + "px";
 
     document.body.appendChild(sparkle);
 
-    setTimeout(() => sparkle.remove(), 600);
+    setTimeout(() => {
+        sparkle.remove();
+    }, 600);
+
 }
 
-document.addEventListener('touchmove', createSparkle);
-document.addEventListener('mousemove', createSparkle);
+document.addEventListener(
+    "mousemove",
+    createSparkle
+);
 
-// Photo Popup Logic
-const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+document.addEventListener(
+    "touchmove",
+    createSparkle
+);
 
-if (!isHomePage) {
-    document.addEventListener('click', function (e) {
-        if (e.target.classList.contains('grid-img')) {
-            let modal = document.getElementById('photoModal');
+/* =========================
+   IMAGE PREVIEW POPUP
+========================= */
 
-            if (!modal) {
-                modal = document.createElement('div');
-                modal.id = 'photoModal';
-                modal.className = 'modal';
-                modal.innerHTML = `<img class="modal-content" id="fullImg">`;
-                document.body.appendChild(modal);
-            }
+document.addEventListener("click", function (e) {
 
-            document.getElementById('fullImg').src = e.target.src;
-            modal.style.display = "flex";
+    if (!e.target.classList.contains("grid-img"))
+        return;
 
-            modal.onclick = function () {
-                modal.style.display = "none";
-            };
+    let modal =
+        document.getElementById("photoModal");
+
+    if (!modal) {
+
+        modal = document.createElement("div");
+
+        modal.id = "photoModal";
+
+        modal.className = "modal";
+
+        modal.innerHTML = `
+            <img
+            class="modal-content"
+            id="fullImg">
+        `;
+
+        document.body.appendChild(modal);
+
+    }
+
+    document.getElementById(
+        "fullImg"
+    ).src = e.target.src;
+
+    modal.style.display = "flex";
+
+    modal.onclick = function () {
+        modal.style.display = "none";
+    };
+
+});
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+const observer =
+new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+
+            entry.target.style.transform =
+                "translateY(0)";
+
         }
+
     });
+
+}, {
+    threshold: 0.15
+});
+
+document
+.querySelectorAll(".card")
+.forEach(card => {
+
+    card.style.opacity = "0";
+
+    card.style.transform =
+        "translateY(40px)";
+
+    card.style.transition =
+        "all .6s ease";
+
+    observer.observe(card);
+
+});
+
+/* =========================
+   PAGE LOADER
+========================= */
+
+window.addEventListener("load", () => {
+
+    document.body.classList.add("loaded");
+
+});
+
+/* =========================
+   HERO BUTTON EFFECT
+========================= */
+
+const heroBtn =
+document.querySelector(".hero-btn");
+
+if (heroBtn) {
+
+    heroBtn.addEventListener("mouseenter", () => {
+
+        heroBtn.style.transform =
+            "translateY(-3px) scale(1.03)";
+
+    });
+
+    heroBtn.addEventListener("mouseleave", () => {
+
+        heroBtn.style.transform =
+            "translateY(0) scale(1)";
+
+    });
+
 }
